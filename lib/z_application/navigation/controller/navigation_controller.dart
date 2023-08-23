@@ -2,6 +2,7 @@ import "package:device_info_plus/device_info_plus.dart";
 import "package:flutter/cupertino.dart";
 import "package:get/get.dart";
 import "package:money_budget/category/navigator/category_navigator.dart";
+import "package:money_budget/history/navigator/history_navigator.dart";
 import "package:money_budget/home/navigator/homenavigator.dart";
 import "package:money_budget/monthly_data/navigator/monthly_data_pagenavigator.dart";
 import "package:permission_handler/permission_handler.dart";
@@ -26,9 +27,24 @@ class NavigationScreenController extends GetxController {
           }
           break;
         case 1:
+          if (HistoryPageNavigator.navigatorState?.currentState?.canPop() ??
+              true) {
+            HistoryPageNavigator.navigatorState!.currentState!
+                .popUntil((route) => route.isFirst);
+          }
+          break;
+
+        case 2:
           if (MonthlyDataPageNavigator.navigatorState?.currentState?.canPop() ??
               true) {
             MonthlyDataPageNavigator.navigatorState!.currentState!
+                .popUntil((route) => route.isFirst);
+          }
+          break;
+        case 3:
+          if (CategoryPageNavigator.navigatorState?.currentState?.canPop() ??
+              true) {
+            CategoryPageNavigator.navigatorState!.currentState!
                 .popUntil((route) => route.isFirst);
           }
           break;
@@ -42,6 +58,7 @@ class NavigationScreenController extends GetxController {
   List<Widget> screens = [
     // HomePage(),
     const HomepageNavigator(),
+    const HistoryPageNavigator(),
     const MonthlyDataPageNavigator(),
     const CategoryPageNavigator(),
   ];

@@ -8,11 +8,13 @@ class AllAppBar extends GetView implements PreferredSizeWidget {
     this.leading,
     this.data,
     this.action,
+    this.color,
   });
   final String? title;
   final Widget? leading;
   final Widget? action;
   final Widget? data;
+  final Color? color;
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -20,7 +22,7 @@ class AllAppBar extends GetView implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Get.theme.colorScheme.background,
+      backgroundColor: color ?? Get.theme.colorScheme.background,
       bottom: PreferredSize(
         preferredSize: Size.fromHeight(data == null ? 0 : 100),
         child: data ?? const SizedBox(),
@@ -67,7 +69,7 @@ class AppBarAction extends StatelessWidget {
             spreadRadius: 0.1,
             blurRadius: 8,
             color: Color.fromARGB(34, 0, 0, 0),
-          )
+          ),
         ],
       ),
       child: Image.asset(

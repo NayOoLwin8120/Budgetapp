@@ -29,6 +29,7 @@ class Editpage extends GetView<EditController> {
               Get.back(
                 id: Get.find<NavigationScreenController>().currentPage.value,
               );
+              controller.selectedImage.value = null;
               // Get.back();
             },
             child: AppBarAction(
@@ -63,6 +64,8 @@ class Editpage extends GetView<EditController> {
             controller.descriptionedit.value.isNotEmpty
                 ? controller.descriptionedit.value
                 : home.description.value.toString();
+        controller.selectedImage.value =
+            controller.selectedImage.value ?? home.image.value;
 
         // controller.getcategoriesController.text = home.category.value ?? " ";
         // controller.getdateController.text = home.date.value ?? " ";
@@ -207,6 +210,44 @@ class Editpage extends GetView<EditController> {
                               }
                               return null;
                             },
+                          ),
+                          const SizedBox(height: 15),
+                          const SizedBox(height: 15),
+                          GestureDetector(
+                            onTap: () async {
+                              await controller.showImagePickerDialog();
+                            },
+                            child: Container(
+                              width: double.infinity,
+                              height: 200,
+                              decoration: BoxDecoration(
+                                border: Border.all(color: Colors.white),
+                                color: Colors.cyan,
+                                image: DecorationImage(
+                                  fit: BoxFit.contain,
+                                  image:
+                                      (controller.selectedImage.value != null)
+                                          ? Image.file(
+                                              controller.selectedImage.value!,
+                                            ).image
+                                          : Image.asset(
+                                              Assets.icons.gallery.path,
+                                            ).image,
+                                  // image: (home.imagepath.value.isNotEmpty)
+                                  //     ? Image.file(
+                                  //         controller.selectedImage.value!,
+                                  //       ).image
+                                  //     : Image.asset(
+                                  //         Assets.icons.gallery.path,
+                                  //       ).image,
+                                ),
+                              ),
+                              child: Icon(
+                                Icons.camera_alt,
+                                size: 30,
+                                color: Colors.white.withOpacity(0.7),
+                              ),
+                            ),
                           ),
                           const SizedBox(height: 15),
                           const SizedBox(height: 15),

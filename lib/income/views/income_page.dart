@@ -26,6 +26,7 @@ class IncomePage extends GetView<IncomeController> {
               Get.back(
                 id: Get.find<NavigationScreenController>().currentPage.value,
               );
+              controller.selectedImage.value = null;
               // Get.back();
             },
             child: AppBarAction(
@@ -92,7 +93,6 @@ class IncomePage extends GetView<IncomeController> {
                           },
                         ),
                         const SizedBox(height: 15),
-
                         const SizedBox(height: 15),
                         GestureDetector(
                           onTap: () async {
@@ -142,7 +142,6 @@ class IncomePage extends GetView<IncomeController> {
                             ),
                           ),
                         ),
-
                         const SizedBox(height: 30),
                         Row(
                           children: [
@@ -172,17 +171,6 @@ class IncomePage extends GetView<IncomeController> {
                                 ),
                               ),
                             ),
-                            IconButton(
-                              padding: const EdgeInsets.all(10),
-                              onPressed: () async {
-                                debugPrint("Add Category");
-                                await controller.addcategory();
-                              },
-                              icon: const Icon(
-                                Icons.add,
-                                color: Colors.black,
-                              ),
-                            ),
                           ],
                         ),
                         const SizedBox(height: 30),
@@ -201,38 +189,65 @@ class IncomePage extends GetView<IncomeController> {
                           },
                         ),
                         const SizedBox(height: 15),
-
-                        // Obx(() {
-                        //   final appState = controller.appState.value;
-
-                        //   if (appState == ApiState.loading) {
-                        //     return const Center(
-                        //       child: CircularProgressIndicator(
-                        //         color: Colors.amber,
-                        //       ),
-                        //     );
-                        //   } else if (appState == ApiState.error) {
-                        //     return Cus_Button(
-                        //       title: 'Regiester',
-                        //       onPressed: () {
-                        //         debugPrint(appState);
-                        //         controller.register();
-                        //       },
-                        //     );
-                        //   } else {
-                        //     return Cus_Button(
-                        //       title: 'Regiester',
-                        //       onPressed: () {
-                        //         debugPrint(appState);
-                        //         debugPrint(controller
-                        //             .getallergiesController.text.length);
-                        //         // Get.to(OtpPage());
-                        //         controller.register();
-                        //         // Get.offAll(NavigationScreen());
-                        //       },
-                        //     );
-                        //   }
-                        // }),
+                        Obx(() {
+                          return Center(
+                            child:
+                                // child: GestureDetector(
+                                //   onTap: () async {
+                                //     // controller.getSingleImage();
+                                //     await controller.showImagePickerDialog();
+                                //   },
+                                //   child: CircleAvatar(
+                                //     radius: 100,
+                                //     backgroundImage:
+                                //         (controller.selectedImage.value != null)
+                                //             ? Image.file(
+                                //                 controller.selectedImage.value!,
+                                //                 height: 200,
+                                //               ).image
+                                //             : Image.asset(Assets.icons.gallery.path)
+                                //                 .image,
+                                //     child: Icon(
+                                //       Icons.camera_alt,
+                                //       size: 30,
+                                //       color: Colors.white.withOpacity(0.7),
+                                //     ),
+                                //   ),
+                                // ),
+                                GestureDetector(
+                              onTap: () async {
+                                await controller.showImagePickerDialog();
+                              },
+                              child: Container(
+                                width: double.infinity,
+                                height: 200,
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.white),
+                                  color: Colors.cyan,
+                                  image: DecorationImage(
+                                    fit: BoxFit.contain,
+                                    image:
+                                        (controller.selectedImage.value != null)
+                                            ? Image.file(
+                                                controller.selectedImage.value!,
+                                              ).image
+                                            : Image.asset(
+                                                Assets.icons.gallery.path,
+                                              ).image,
+                                  ),
+                                ),
+                                child: Icon(
+                                  Icons.camera_alt,
+                                  size: 30,
+                                  color: Colors.white.withOpacity(0.7),
+                                ),
+                              ),
+                            ),
+                          );
+                        }),
+                        const SizedBox(
+                          height: 20,
+                        ),
                         cusbutton(
                           title: "Add",
                           onPressed: () async {

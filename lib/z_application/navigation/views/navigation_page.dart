@@ -14,26 +14,31 @@ class NavigationScreen extends GetView<NavigationScreenController> {
   Widget build(BuildContext context) {
     return CupertinoTabScaffold(
       tabBar: CupertinoTabBar(
+        border: Border.all(color: Colors.transparent),
         height: 60,
         onTap: controller.onItemSelected,
         // inactiveColor: Get.theme.colorScheme.onSurface,
-        inactiveColor: Colors.black,
-        activeColor: Colors.white,
-        backgroundColor: Get.theme.colorScheme.primary,
+        inactiveColor: const Color(0xff6633CC).withOpacity(0.5),
+        activeColor: const Color(0xff6633CC),
+        backgroundColor: const Color(0xffEEEEEE),
         iconSize: 25,
         // onTap: controller.onItemSelected,
         items: <BottomNavigationBarItem>[
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "Home",
+          ),
           BottomNavigationBarItem(
-            icon: const Icon(Icons.home),
-            label: "Home".tr,
+            icon: const Icon(Icons.history),
+            label: "History".tr,
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.monetization_on),
             label: "Monthly".tr,
           ),
           BottomNavigationBarItem(
-            icon: const Icon(Icons.category_rounded),
-            label: "Category".tr,
+            icon: const Icon(Icons.person_rounded),
+            label: "Profile".tr,
           ),
         ],
       ),

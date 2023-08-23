@@ -3,17 +3,27 @@
 ///  FlutterGen
 /// *****************************************************
 
-import "package:flutter/widgets.dart";
+// coverage:ignore-file
+// ignore_for_file: type=lint
+// ignore_for_file: directives_ordering,unnecessary_import,implicit_dynamic_list_literal,deprecated_member_use
+
+import 'package:flutter/widgets.dart';
 
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/camera.png
+  AssetGenImage get camera => const AssetGenImage('assets/icons/camera.png');
+
+  /// File path: assets/icons/gallery.png
+  AssetGenImage get gallery => const AssetGenImage('assets/icons/gallery.png');
+
   /// File path: assets/icons/leftarrow.png
   AssetGenImage get leftarrow =>
-      const AssetGenImage("assets/icons/leftarrow.png");
+      const AssetGenImage('assets/icons/leftarrow.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [leftarrow];
+  List<AssetGenImage> get values => [camera, gallery, leftarrow];
 }
 
 class Assets {

@@ -74,28 +74,31 @@ class DataListItem extends StatelessWidget {
       // crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: 3),
-        Container(
-          padding: const EdgeInsets.only(left: 30, right: 30),
-          height: 40,
-          color: isIncome
-              ? Colors.green.withOpacity(0.3)
-              : Colors.red.withOpacity(0.3),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(about),
-              Row(
-                children: [
-                  Text(isIncome ? "+ " : " - "),
-                  Text(money),
-                  const Text("K")
-                ],
-              ),
-              IconButton(
-                onPressed: iconaction,
-                icon: const Icon(Icons.remove_red_eye),
-              )
-            ],
+        GestureDetector(
+          onTap: iconaction,
+          child: Container(
+            padding: const EdgeInsets.only(left: 30, right: 30),
+            height: 40,
+            color: isIncome
+                ? Colors.green.withOpacity(0.3)
+                : Colors.red.withOpacity(0.3),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(about),
+                Row(
+                  children: [
+                    Text(isIncome ? "+ " : " - "),
+                    Text(money),
+                    const Text("K"),
+                  ],
+                ),
+                IconButton(
+                  onPressed: iconaction,
+                  icon: const Icon(Icons.remove_red_eye),
+                ),
+              ],
+            ),
           ),
         ),
         const SizedBox(height: 10),

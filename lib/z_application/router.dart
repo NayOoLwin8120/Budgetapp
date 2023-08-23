@@ -1,4 +1,3 @@
-import "package:flutter/foundation.dart";
 import "package:get/get.dart";
 import "package:money_budget/category/views/category_page.dart";
 import "package:money_budget/detail/view/detail_page.dart";
@@ -17,5 +16,5 @@ final getRouteList = [
   GetPage(name: DetailPage.name, page: () => DetailPage()),
   GetPage(name: Editpage.name, page: () => Editpage()),
   GetPage(name: Monthlydatapage.name, page: () => Monthlydatapage()),
-  GetPage(name: CategoryPage.name, page: () => const CategoryPage()),
+  GetPage(name: CategoryPage.name, page: () => CategoryPage()),
 ];

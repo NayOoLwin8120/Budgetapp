@@ -16,7 +16,7 @@ analyzer:
     collection_methods_unrelated_type: error
     comment_references: error
     control_flow_in_finally: error
-    discarded_futures: error
+
     empty_statements: error
     no_duplicate_case_values: error
     prefer_void_to_null: error

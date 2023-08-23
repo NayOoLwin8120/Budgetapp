@@ -6,7 +6,7 @@ import "package:money_budget/z_application/generalrouting.dart";
 
 class MonthlyDataPageNavigator extends StatelessWidget {
   const MonthlyDataPageNavigator({super.key});
-  static int navigationKey = 1;
+  static int navigationKey = 2;
   static GlobalKey<NavigatorState>? navigatorState =
       Get.nestedKey(navigationKey);
 
@@ -20,7 +20,7 @@ class MonthlyDataPageNavigator extends StatelessWidget {
             page: () => Monthlydatapage(), // Your page
             settings: setting,
             bindings: [
-              MonthlyDataPageControllerBindings()
+              MonthlyDataPageControllerBindings(),
             ], //Your controller Bindings
           );
         }

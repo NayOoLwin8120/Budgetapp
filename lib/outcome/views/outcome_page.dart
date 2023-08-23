@@ -183,9 +183,68 @@ class OutcomePage extends GetView<OutcomeController> {
                             return null;
                           },
                         ),
-                        const SizedBox(height: 30),
+                        const SizedBox(height: 15),
+                        Obx(() {
+                          return Center(
+                            child:
+                                // child: GestureDetector(
+                                //   onTap: () async {
+                                //     // controller.getSingleImage();
+                                //     await controller.showImagePickerDialog();
+                                //   },
+                                //   child: CircleAvatar(
+                                //     radius: 100,
+                                //     backgroundImage:
+                                //         (controller.selectedImage.value != null)
+                                //             ? Image.file(
+                                //                 controller.selectedImage.value!,
+                                //                 height: 200,
+                                //               ).image
+                                //             : Image.asset(Assets.icons.gallery.path)
+                                //                 .image,
+                                //     child: Icon(
+                                //       Icons.camera_alt,
+                                //       size: 30,
+                                //       color: Colors.white.withOpacity(0.7),
+                                //     ),
+                                //   ),
+                                // ),
+                                GestureDetector(
+                              onTap: () async {
+                                await controller.showImagePickerDialog();
+                              },
+                              child: Container(
+                                width: double.infinity,
+                                height: 200,
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.white),
+                                  color: Colors.cyan,
+                                  image: DecorationImage(
+                                    fit: BoxFit.contain,
+                                    image:
+                                        (controller.selectedImage.value != null)
+                                            ? Image.file(
+                                                controller.selectedImage.value!,
+                                              ).image
+                                            : Image.asset(
+                                                Assets.icons.gallery.path,
+                                              ).image,
+                                  ),
+                                ),
+                                child: Icon(
+                                  Icons.camera_alt,
+                                  size: 30,
+                                  color: Colors.white.withOpacity(0.7),
+                                ),
+                              ),
+                            ),
+                          );
+                        }),
+                        const SizedBox(
+                          height: 20,
+                        ),
                         cusbutton(
-                          title: "Add",
+                          title: "Add Expense",
                           onPressed: () async {
                             debugPrint("Get database");
                             await controller.store();

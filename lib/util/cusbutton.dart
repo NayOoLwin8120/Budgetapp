@@ -8,8 +8,8 @@ Widget cusbutton({
       height: 50,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: const Color(0xff05AACB),
-        borderRadius: BorderRadius.circular(10),
+        color: const Color(0xff6633CC),
+        borderRadius: BorderRadius.circular(20),
       ),
       child: ElevatedButton(
         onPressed: () {

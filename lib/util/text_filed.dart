@@ -70,8 +70,15 @@ class AuthTextField extends StatelessWidget {
             filled: true,
             fillColor: filledColor,
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: const BorderSide(color: Colors.white),
+              borderRadius: BorderRadius.circular(18),
+              borderSide: const BorderSide(color: Color(0xff6633CC)),
+            ),
+            suffixIcon: Padding(
+              padding: const EdgeInsets.all(0.0),
+              child: Icon(
+                icon,
+                color: const Color(0xFFFF6633),
+              ), // icon is 48px widget.
             ),
             labelText: labeltext,
             labelStyle: TextStyle(
